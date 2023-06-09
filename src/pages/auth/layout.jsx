@@ -30,12 +30,12 @@ const AuthOptions = [
     role: USER_ROLES.employer,
     subtitle: "I'm looking for talents to join our team",
   },
-  {
-    id: "vendor",
-    title: "Vendor",
-    role: USER_ROLES.vendor,
-    subtitle: "I'm searching for tenders",
-  },
+  // {
+  //   id: "vendor",
+  //   title: "Vendor",
+  //   role: USER_ROLES.vendor,
+  //   subtitle: "I'm searching for tenders",
+  // },
 ];
 
 function AuthLayout({

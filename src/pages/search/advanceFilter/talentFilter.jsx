@@ -39,7 +39,7 @@ function TalentFilter({ formik, footer }) {
                   title="Category"
                   defaultValue=""
                   placeholder="Select a Job category"
-                  options={jobCategories.data.map((jobCategory) => ({
+                  options={jobCategories?.data?.map((jobCategory) => ({
                     value: jobCategory.id,
                     label: jobCategory.title,
                   }))}

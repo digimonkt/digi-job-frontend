@@ -1,21 +1,21 @@
 export const globalLocalStorage = {
   setAccessToken: (accessToken) => {
-    localStorage.setItem("x-access", accessToken);
+    localStorage.setItem("X-Access", accessToken);
     window.dispatchEvent(new Event("storage"));
   },
   removeAccessToken: () => {
-    localStorage.removeItem("x-access");
+    localStorage.removeItem("X-Access");
     window.dispatchEvent(new Event("storage"));
   },
-  getAccessToken: () => localStorage.getItem("x-access"),
+  getAccessToken: () => localStorage.getItem("X-Access"),
   setRefreshToken: (refreshToken) => {
-    localStorage.setItem("x-refresh", refreshToken);
+    localStorage.setItem("X-Refresh", refreshToken);
     window.dispatchEvent(new Event("storage"));
   },
   removeRefreshToken: () => {
-    localStorage.removeItem("x-refresh");
+    localStorage.removeItem("X-Refresh");
     window.dispatchEvent(new Event("storage"));
   },
-  getRefreshToken: () => localStorage.getItem("x-refresh"),
+  getRefreshToken: () => localStorage.getItem("X-Refresh"),
   cleanLocalStorage: () => localStorage.clear(),
 };

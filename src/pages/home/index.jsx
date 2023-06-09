@@ -55,10 +55,10 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(setIstHomePage(true));
-    if (!countries.data.length) {
+    if (!countries?.data?.length) {
       dispatch(getCountries());
     }
-    if (!jobCategories.data.length) {
+    if (!jobCategories?.data?.length) {
       dispatch(getJobCategories());
     }
     return () => {
@@ -120,7 +120,7 @@ const Home = () => {
                         <SelectInput
                           value={categories}
                           onChange={(vl) => setCategories(vl.target.value)}
-                          options={jobCategories.data.map((jobCategory) => ({
+                          options={jobCategories?.data?.map((jobCategory) => ({
                             value: jobCategory.id,
                             label: jobCategory.title,
                           }))}

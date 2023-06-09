@@ -35,7 +35,7 @@ export const GetUserDetailsAPI = async (data) => {
   if (response.remote === "success") {
     return {
       remote: "success",
-      data: transformGetUserDetails(response.data),
+      data: transformGetUserDetails(response.data.data),
     };
   }
   return response;
