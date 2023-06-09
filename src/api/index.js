@@ -10,14 +10,14 @@ export const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.response.use(function (response) {
-  const newAccessToken = response.headers.get("x-access");
+  const newAccessToken = response.headers.get("X-Access");
   if (
     newAccessToken &&
     newAccessToken !== globalLocalStorage.getAccessToken()
   ) {
     globalLocalStorage.setAccessToken(newAccessToken);
   }
-  const newRefreshToken = response.headers.get("x-refresh");
+  const newRefreshToken = response.headers.get("X-Refresh");
   if (
     newRefreshToken &&
     newRefreshToken !== globalLocalStorage.getRefreshToken()
@@ -39,8 +39,9 @@ export const request = async (config) => {
     const refreshToken = globalLocalStorage.getRefreshToken();
     if (accessToken && refreshToken && !config.url.includes("http")) {
       config.headers.Authorization = `Bearer ${accessToken}`;
-      config.headers["x-refresh"] = `${refreshToken}`;
+      config.headers["X-Refresh"] = `${refreshToken}`;
     }
+
     const response = await axiosInstance.request({ ...config });
     return {
       remote: "success",
@@ -49,11 +50,11 @@ export const request = async (config) => {
   } catch (error) {
     if (error) {
       if (error.response) {
-        if (error.response.headers["x-access"]) {
-          globalLocalStorage.setAccessToken(error.response.headers["x-access"]);
+        if (error.response.headers["X-Access"]) {
+          globalLocalStorage.setAccessToken(error.response.headers["X-Access"]);
         } else {
           if (error.response.status === 403 || error.response.status === 401) {
-            localStorage.clear();
+            // localStorage.clear();
           }
         }
         const axiosError = error;

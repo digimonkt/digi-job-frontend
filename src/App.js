@@ -30,6 +30,7 @@ function App() {
     auth: { isGlobalLoading, currentUser },
     toast: { message: toastMessage, type: toastType },
   } = useSelector((state) => state);
+
   const checkLoginStatus = () => {
     const accessToken = globalLocalStorage.getAccessToken();
     const refreshToken = globalLocalStorage.getRefreshToken();

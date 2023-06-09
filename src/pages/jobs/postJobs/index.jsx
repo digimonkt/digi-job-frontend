@@ -282,19 +282,19 @@ function PostJobsComponent() {
     }
   }, [jobId]);
   useEffect(() => {
-    if (!countries.data.length) {
+    if (!countries?.data?.length) {
       dispatch(getCountries());
     }
-    if (!jobCategories.data.length) {
+    if (!jobCategories?.data?.length) {
       dispatch(getJobCategories());
     }
-    if (!educationLevels.data.length) {
+    if (!educationLevels?.data?.length) {
       dispatch(getEducationLevels());
     }
-    if (!languages.data.length) {
+    if (!languages?.data?.length) {
       dispatch(getLanguages());
     }
-    if (!skills.data.length) {
+    if (!skills?.data?.length) {
       dispatch(getSkills());
     }
   }, []);
@@ -497,7 +497,7 @@ function PostJobsComponent() {
                         <SelectInput
                           defaultValue=""
                           placeholder="Select a Job category"
-                          options={jobCategories.data.map((jobCategory) => ({
+                          options={jobCategories?.data?.map((jobCategory) => ({
                             value: jobCategory.id,
                             label: jobCategory.title,
                           }))}

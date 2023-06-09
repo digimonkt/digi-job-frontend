@@ -75,7 +75,7 @@ function SelectInputComponent({
           }
           {...rest}
         >
-          {options.map((option) => {
+          {options?.map((option) => {
             return (
               <MenuItem value={option.value} key={option.value}>
                 {option.label}

@@ -362,7 +362,7 @@ const AboutMe = (props) => {
                 label="Highest education (optional)"
                 type="select"
                 placeholder="Select Your highest education"
-                options={educationLevels.data.map((educationLevel) => ({
+                options={educationLevels?.data?.map((educationLevel) => ({
                   value: educationLevel.id,
                   label: educationLevel.title,
                 }))}
