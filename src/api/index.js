@@ -66,10 +66,6 @@ export const request = async (config) => {
               message: ["Internal Server Error"],
             };
           }
-          for (const key in errorMessage) {
-            errorMessage[key] = errorMessage[key][0];
-          }
-
           return {
             remote: "failure",
             error: {

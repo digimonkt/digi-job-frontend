@@ -58,7 +58,7 @@ function RegistrationForm() {
       } else {
         setIsLoading(false);
         formik.setErrors({
-          email: res.error.errors.email,
+          email: res.error.errors.message,
           mobileNumber: res.error.errors.mobile_number,
         });
       }
