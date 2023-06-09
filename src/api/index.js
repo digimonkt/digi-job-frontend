@@ -69,6 +69,7 @@ export const request = async (config) => {
           for (const key in errorMessage) {
             errorMessage[key] = errorMessage[key][0];
           }
+
           return {
             remote: "failure",
             error: {
