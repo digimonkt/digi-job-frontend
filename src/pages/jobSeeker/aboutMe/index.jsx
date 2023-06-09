@@ -137,10 +137,10 @@ const AboutMe = (props) => {
     },
   });
   useEffect(() => {
-    if (!educationLevels.data.length) {
+    if (!educationLevels?.data?.length) {
       dispatch(getEducationLevels());
     }
-    if (!countries.data.length) {
+    if (!countries?.data?.length) {
       dispatch(getCountries());
     }
   }, []);
