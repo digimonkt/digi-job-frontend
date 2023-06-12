@@ -13,7 +13,6 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import {
   AttachmentDragNDropInput,
   CheckboxInput,
-  DateInput,
   LabeledInput,
   SelectInput,
 } from "@components/input";
@@ -75,7 +74,7 @@ function PostJobsComponent() {
   const formik = useFormik({
     initialValues: {
       title: "",
-      budgetCurrency: "usd",
+      budgetCurrency: "INR",
       budgetAmount: 0,
       budgetPayPeriod: PAY_PERIOD.month,
       description: "",
@@ -369,7 +368,7 @@ function PostJobsComponent() {
                   </Grid>
                   <Grid item xl={3} lg={3}>
                     <CurrencyInput
-                      currency="USD"
+                      currency="INR"
                       title="Budget"
                       optionsValues={{
                         currency: formik.getFieldProps("budgetCurrency"),
@@ -570,12 +569,12 @@ function PostJobsComponent() {
                     </FormGroup>
                   </Grid>
                   <Grid item xl={2} lg={2} xs={12} className="mt-2">
-                    <LabeledInput
+                    {/* <LabeledInput
                       title="Duration in Month"
                       className="add-form-control"
                       placeholder="Months"
                       {...formik.getFieldProps("duration")}
-                    />
+                    /> */}
 
                     {formik.touched.duration && formik.errors.duration ? (
                       <ErrorMessage>{formik.errors.duration}</ErrorMessage>
@@ -583,7 +582,7 @@ function PostJobsComponent() {
                   </Grid>
                   <Grid item xl={3} lg={3} xs={12} className="mt-2">
                     <div style={{ display: "flex", flexDirection: "column" }}>
-                      <Stack
+                      {/* <Stack
                         direction="row"
                         alignItems="center"
                         justifyContent="space-between"
@@ -600,12 +599,12 @@ function PostJobsComponent() {
                       />
                       {formik.touched.startDate && formik.errors.startDate ? (
                         <ErrorMessage>{formik.errors.startDate}</ErrorMessage>
-                      ) : null}
+                      ) : null} */}
                     </div>
                   </Grid>
                   <Grid item xl={3} lg={3} xs={12} className="mt-2">
                     <div style={{ display: "flex", flexDirection: "column" }}>
-                      <Stack
+                      {/* <Stack
                         direction="row"
                         alignItems="center"
                         justifyContent="space-between"
@@ -614,21 +613,21 @@ function PostJobsComponent() {
                         <label className="mb-1 d-inline-block">
                           Deadline<span className="required-field">*</span>{" "}
                         </label>
-                      </Stack>
-                      <DateInput
+                      </Stack> */}
+                      {/* <DateInput
                         onChange={(e) => formik.setFieldValue("deadline", e)}
                         value={formik.values.deadline}
                         onBlur={formik.getFieldProps("deadline").onBlur}
-                      />
-                      {formik.touched.deadline && formik.errors.deadline ? (
+                      /> */}
+                      {/* {formik.touched.deadline && formik.errors.deadline ? (
                         <ErrorMessage>{formik.errors.deadline}</ErrorMessage>
-                      ) : null}
+                      ) : null} */}
                     </div>
                   </Grid>
                   <Grid item xl={12} lg={12} xs={12}>
                     <Divider sx={{ borderColor: "#CACACA", opacity: "1" }} />
                   </Grid>
-                  <Grid item xl={12} lg={12} xs={12}>
+                  {/* <Grid item xl={12} lg={12} xs={12}>
                     <h2 className="mt-3">Additional ways to apply</h2>
                   </Grid>
                   <Grid item xl={4} lg={4} xs={12}>
@@ -647,9 +646,9 @@ function PostJobsComponent() {
                     formik.errors.contactEmail ? (
                       <ErrorMessage>{formik.errors.contactEmail}</ErrorMessage>
                     ) : null}
-                  </Grid>
+                  </Grid> */}
 
-                  <Grid
+                  {/* <Grid
                     item
                     xl={4}
                     lg={4}
@@ -678,10 +677,10 @@ function PostJobsComponent() {
                       placeholder="Another CC email address"
                       {...formik.getFieldProps("cc2")}
                     />
-                  </Grid>
-                  <Grid item xl={12} lg={12} xs={12}>
+                  </Grid> */}
+                  {/* <Grid item xl={12} lg={12} xs={12}>
                     <Divider sx={{ borderColor: "#CACACA", opacity: "1" }} />
-                  </Grid>
+                  </Grid> */}
                   <Grid item xl={12} lg={12} xs={12}>
                     <h2 className="mt-2">Preferences</h2>
                   </Grid>
@@ -690,7 +689,7 @@ function PostJobsComponent() {
                     <SelectInput
                       defaultValue=""
                       placeholder="Choose an education level"
-                      options={educationLevels.data.map((educationLevel) => ({
+                      options={educationLevels?.data?.map((educationLevel) => ({
                         value: educationLevel.id,
                         label: educationLevel.title,
                       }))}
@@ -716,7 +715,7 @@ function PostJobsComponent() {
                             <SelectInput
                               placeholder="Select a Language"
                               className="mb-3"
-                              options={languages.data.map((language) => ({
+                              options={languages?.data?.map((language) => ({
                                 value: language.id,
                                 label: language.title,
                               }))}

@@ -5,6 +5,7 @@ import { ErrorMessage } from "@components/caption";
 import { PAY_PERIOD } from "@utils/enum";
 // input onChange, name and onBlur must be present in optionsValues or else it will not work
 function CurrencyInput({ title, optionsValues, errors, ...rest }) {
+  console.log({ title, optionsValues, errors, ...rest });
   return (
     <>
       <label className="mb-2">{title}</label>
@@ -12,8 +13,8 @@ function CurrencyInput({ title, optionsValues, errors, ...rest }) {
         <SelectInput
           options={[
             {
-              value: "usd",
-              label: "USD",
+              value: "INR",
+              label: "INR",
             },
           ]}
           className="usd"
