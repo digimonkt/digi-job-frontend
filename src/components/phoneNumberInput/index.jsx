@@ -34,7 +34,7 @@ function PhoneNumberInputComponent({
       <PhoneInput
         placeholder="Mobile Number"
         {...rest}
-        defaultCountry={country}
+        defaultCountry="IN"
         className={`${styles.phone_number} ${className || ""}`}
         onChange={(e) =>
           onChange({
