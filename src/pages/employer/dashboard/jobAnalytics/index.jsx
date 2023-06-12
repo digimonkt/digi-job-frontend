@@ -96,7 +96,6 @@ const OPTIONS = {
   },
 };
 const transformData = (data) => {
-  console.log("i am ");
   let total = 0;
   const counts = new Array(12).fill(0);
   if (data && data.length > 0) {
