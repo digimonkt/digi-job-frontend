@@ -30,5 +30,4 @@ jobs:
             cd /home/user/digi_job/frontend_digi-job/ 
             git pull origin master
             /home/user/.yarn/bin/yarn install
-            /home/user/.yarn/bin/yarn build
-            pm2 restart 61
+            pm2 restart 64
