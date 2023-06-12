@@ -12,8 +12,8 @@ function CurrencyInput({ title, optionsValues, errors, ...rest }) {
         <SelectInput
           options={[
             {
-              value: "usd",
-              label: "USD",
+              value: "INR",
+              label: "INR",
             },
           ]}
           className="usd"

@@ -60,7 +60,7 @@ function EditEducation({ handleSubmit, currentSelected, handleClose }) {
               id: data.id,
               title: data.title,
               institute: data.institute,
-              educationLevel: educationLevels.data.find(
+              educationLevel: educationLevels?.data?.find(
                 (record) => record.id === data.education_level
               ),
               startDate: dayjs(data.start_date).format(DATE_FORMAT),
@@ -84,7 +84,7 @@ function EditEducation({ handleSubmit, currentSelected, handleClose }) {
               id: currentSelected.id,
               title: values.title,
               institute: values.institute,
-              educationLevel: educationLevels.data.find(
+              educationLevel: educationLevels?.data?.find(
                 (record) => record.id === values.educationLevel
               ),
               startDate: dayjs(values.startDate).format(DATE_FORMAT),
@@ -129,7 +129,7 @@ function EditEducation({ handleSubmit, currentSelected, handleClose }) {
               title="Education Level"
               labelWeight={500}
               className="add-form-control"
-              options={educationLevels.data.map((education) => ({
+              options={educationLevels?.data?.map((education) => ({
                 label: education.title,
                 value: education.id,
               }))}

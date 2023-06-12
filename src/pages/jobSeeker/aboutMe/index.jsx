@@ -118,7 +118,7 @@ const AboutMe = (props) => {
               dob: dayjs(values.dob).format(DATE_FORMAT),
               employmentStatus: values.employmentStatus,
               description: values.description,
-              highestEducation: educationLevels.data.find(
+              highestEducation: educationLevels?.data?.find(
                 (level) => level.id === values.highestEducation
               ),
               marketInformationNotification:

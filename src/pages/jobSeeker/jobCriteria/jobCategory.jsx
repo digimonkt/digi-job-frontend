@@ -13,7 +13,7 @@ const JobCategory = ({ handleNext }) => {
   const [updating, setUpdating] = useState(false);
   const getJobSeekerCategories = async () => {
     const res = await GetJobSeekerCategoriesAPI();
-    if (res.remote === "success") {
+    if (res?.remote === "success") {
       setAllCategories(res.data);
       const selectedSubCategories = {};
       for (let i = 0; i < res.data.length; i++) {
