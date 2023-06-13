@@ -1,7 +1,7 @@
 export const transformGetCountriesAPIResponse = (data) => {
   return data.map((data) => ({
     id: data.id,
-    title: data.title,
+    title: data.name,
     currencyCode: data.currency_code,
     countryCode: data.country_code,
     iso2: data.iso_code2,
