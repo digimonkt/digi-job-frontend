@@ -14,6 +14,7 @@ export const getCountriesAPI = async (data) => {
   }
   return response;
 };
+
 export const getCitiesAPI = async (data) => {
   const response = await api.request({
     url: urlcat("/v1/admin/city", data),
@@ -34,6 +35,7 @@ export const getJobCategoriesAPI = async (data) => {
     method: "GET",
   });
   if (response.remote === "success") {
+    console.log(response.data.results);
     return {
       remote: "success",
       data: response.data.results,
