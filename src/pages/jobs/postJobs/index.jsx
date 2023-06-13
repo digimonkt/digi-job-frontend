@@ -34,9 +34,9 @@ import {
 } from "@redux/slice/choices";
 import { createJobAPI, updateEmployerJobAPI } from "@api/employer";
 import { ErrorToast, SuccessToast } from "@components/toast";
-import dayjs from "dayjs";
+// import dayjs from "dayjs";
 import { getJobDetailsByIdAPI } from "@api/job";
-import { DATABASE_DATE_FORMAT } from "@utils/constants/constants";
+// import { DATABASE_DATE_FORMAT } from "@utils/constants/constants";
 import { useDebounce } from "usehooks-ts";
 import { GetSuggestedAddressAPI } from "@api/user";
 import styles from "./postJobs.module.css";
@@ -120,13 +120,13 @@ function PostJobsComponent() {
         is_full_time: values.isFullTime,
         is_part_time: values.isPartTime,
         has_contract: values.hasContract,
-        deadline: dayjs(values.deadline).format(DATABASE_DATE_FORMAT),
-        start_date: values.startDate
-          ? dayjs(values.startDate).format(DATABASE_DATE_FORMAT)
-          : "",
-        contact_email: values.isContactEmail ? values.contactEmail : "",
-        cc1: values.isContactEmail ? values.cc1 : "",
-        cc2: values.isContactEmail ? values.cc2 : "",
+        // deadline: dayjs(values.deadline).format(DATABASE_DATE_FORMAT),
+        // start_date: values.startDate
+        //   ? dayjs(values.startDate).format(DATABASE_DATE_FORMAT)
+        //   : "",
+        // contact_email: values.isContactEmail ? values.contactEmail : "",
+        // cc1: values.isContactEmail ? values.cc1 : "",
+        // cc2: values.isContactEmail ? values.cc2 : "",
         contact_whatsapp: values.isContactWhatsapp
           ? values.contactWhatsapp
           : "",
@@ -135,7 +135,7 @@ function PostJobsComponent() {
         skill: values.skills,
         attachments: values.attachments,
         attachments_remove: values.attachmentsRemove,
-        duration: values.duration,
+        // duration: values.duration,
         experience: values.experience,
       };
       const newFormData = new FormData();
@@ -203,7 +203,7 @@ function PostJobsComponent() {
       formik.setFieldValue("country", data.country.id);
       formik.setFieldValue("city", data.city.id);
       formik.setFieldValue("address", data.address);
-      formik.setFieldValue("duration", data.duration);
+      // formik.setFieldValue("duration", data.duration);
       formik.setFieldValue("experience", data.experience);
       setSearchValue(data.address);
       formik.setFieldValue("jobCategories", data.jobCategories.id);
@@ -211,12 +211,12 @@ function PostJobsComponent() {
       formik.setFieldValue("isFullTime", data.isFullTime);
       formik.setFieldValue("isPartTime", data.isPartTime);
       formik.setFieldValue("hasContract", data.hasContract);
-      formik.setFieldValue("deadline", dayjs(data.deadline));
-      formik.setFieldValue("startDate", dayjs(data.startDate));
-      formik.setFieldValue("isContactEmail", Boolean(data.contactEmail));
-      formik.setFieldValue("contactEmail", data.contactEmail);
-      formik.setFieldValue("cc1", data.cc1);
-      formik.setFieldValue("cc2", data.cc2);
+      // formik.setFieldValue("deadline", dayjs(data.deadline));
+      // formik.setFieldValue("startDate", dayjs(data.startDate));
+      // formik.setFieldValue("isContactEmail", Boolean(data.contactEmail));
+      // formik.setFieldValue("contactEmail", data.contactEmail);
+      // formik.setFieldValue("cc1", data.cc1);
+      // formik.setFieldValue("cc2", data.cc2);
       formik.setFieldValue("isContactWhatsapp", Boolean(data.contactWhatsapp));
       formik.setFieldValue("contactWhatsapp", data.contactWhatsapp);
       formik.setFieldValue("highestEducation", data.highestEducation.id);
@@ -225,19 +225,19 @@ function PostJobsComponent() {
         "languages",
         data.languages.map && data.languages.length
           ? [
-              ...data.languages.map((language) => ({
-                language: language.language.id,
-              })),
-              {
-                language: "",
-              },
-              {
-                language: "",
-              },
-            ]
-          : [1, 2, 3].map(() => ({
+            ...data.languages.map((language) => ({
+              language: language.language.id,
+            })),
+            {
               language: "",
-            }))
+            },
+            {
+              language: "",
+            },
+          ]
+          : [1, 2, 3].map(() => ({
+            language: "",
+          }))
       );
       formik.setFieldValue("highestEducation", data.highestEducation.id);
       formik.setFieldValue(
@@ -506,7 +506,7 @@ function PostJobsComponent() {
                           onBlur={formik.handleBlur}
                         />
                         {formik.touched.jobCategories &&
-                        formik.errors.jobCategories ? (
+                          formik.errors.jobCategories ? (
                           <ErrorMessage>
                             {formik.errors.jobCategories}
                           </ErrorMessage>
@@ -522,7 +522,7 @@ function PostJobsComponent() {
                           }
                           options={(
                             jobSubCategories.data[
-                              formik.values.jobCategories
+                            formik.values.jobCategories
                             ] || []
                           ).map((subCategory) => ({
                             value: subCategory.id,
@@ -531,7 +531,7 @@ function PostJobsComponent() {
                           {...formik.getFieldProps("jobSubCategory")}
                         />
                         {formik.touched.jobSubCategory &&
-                        formik.errors.jobSubCategory ? (
+                          formik.errors.jobSubCategory ? (
                           <ErrorMessage>
                             {formik.errors.jobSubCategory}
                           </ErrorMessage>
@@ -696,7 +696,7 @@ function PostJobsComponent() {
                       {...formik.getFieldProps("highestEducation")}
                     />
                     {formik.touched.highestEducation &&
-                    formik.errors.highestEducation ? (
+                      formik.errors.highestEducation ? (
                       <ErrorMessage>
                         {formik.errors.highestEducation}
                       </ErrorMessage>
@@ -728,7 +728,7 @@ function PostJobsComponent() {
                             {i === 0 ? (
                               <>
                                 {formik.touched.languages &&
-                                formik.errors.languages ? (
+                                  formik.errors.languages ? (
                                   <ErrorMessage>
                                     {formik.errors.languages}
                                   </ErrorMessage>
@@ -873,8 +873,8 @@ function PostJobsComponent() {
                             ? "Updating..."
                             : "Posting..."
                           : jobId
-                          ? "UPDATE THE JOB"
-                          : "POST THE JOB"
+                            ? "UPDATE THE JOB"
+                            : "POST THE JOB"
                       }
                       type="submit"
                       disabled={submitting === SUBMITTING_STATUS_ENUM.loading}
