@@ -98,10 +98,12 @@ const OPTIONS = {
 const transformData = (data) => {
   let total = 0;
   const counts = new Array(12).fill(0);
-  for (const d of data) {
-    const month = new Date(d.month).getMonth();
-    counts[month] += d.count;
-    total += d.count;
+  if (data && data.length > 0) {
+    for (const d of data) {
+      const month = new Date(d.month).getMonth();
+      counts[month] += d.count;
+      total += d.count;
+    }
   }
 
   const result = [];
