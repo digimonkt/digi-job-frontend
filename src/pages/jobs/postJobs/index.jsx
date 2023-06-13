@@ -755,7 +755,7 @@ function PostJobsComponent() {
                         className="mb-3"
                         defaultValue=""
                         placeholder="Select a Skill"
-                        options={skills.data.map((skill) => ({
+                        options={skills?.data?.map((skill) => ({
                           value: skill.id,
                           label: skill.title,
                         }))}
@@ -772,7 +772,7 @@ function PostJobsComponent() {
                       <SelectInput
                         defaultValue=""
                         placeholder="Select a Skill"
-                        options={skills.data.map((skill) => ({
+                        options={skills?.data?.map((skill) => ({
                           value: skill.id,
                           label: skill.title,
                         }))}
@@ -786,7 +786,7 @@ function PostJobsComponent() {
                       <SelectInput
                         defaultValue=""
                         placeholder="Select a Skill"
-                        options={skills.data.map((skill) => ({
+                        options={skills?.data?.map((skill) => ({
                           value: skill.id,
                           label: skill.title,
                         }))}
