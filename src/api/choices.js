@@ -35,7 +35,6 @@ export const getJobCategoriesAPI = async (data) => {
     method: "GET",
   });
   if (response.remote === "success") {
-    console.log(response.data.results);
     return {
       remote: "success",
       data: response.data.results,
