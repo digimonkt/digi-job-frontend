@@ -14,6 +14,7 @@ export const getCountriesAPI = async (data) => {
   }
   return response;
 };
+
 export const getCitiesAPI = async (data) => {
   const response = await api.request({
     url: urlcat("/v1/admin/city", data),

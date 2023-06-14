@@ -17,48 +17,48 @@ export const validateCreateJobInput = Yup.object().shape({
   isPartTime: Yup.boolean(),
   hasContract: Yup.boolean(),
   isContactEmail: Yup.boolean(),
-  duration: Yup.number(),
+  // duration: Yup.number(),
   experience: Yup.number().required("Experience is required"),
-  deadline: Yup.string()
-    .required("Deadline is required")
-    .test("isFuture", "Date Must be of Future", (value, context) => {
-      return dayjs(value).isSameOrAfter(dayjs());
-    }),
-  startDate: Yup.string().test(
-    "isFuture",
-    "Date Must be of Future",
-    (value, context) => {
-      if (!value) {
-        return true;
-      }
-      return dayjs(value).isSameOrAfter(dayjs());
-    }
-  ),
-  contactEmail: Yup.string()
-    .email()
-    .test("ifPresent", "Contact Email is required", (value, context) => {
-      const { parent } = context;
-      if (parent.isContactEmail) {
-        return parent.contactEmail;
-      } else {
-        return true;
-      }
-    }),
-  cc1: Yup.string().email("Invalid Email"),
-  cc2: Yup.string().email("Invalid Email"),
-  isContactWhatsapp: Yup.boolean(),
-  contactWhatsapp: Yup.string().test(
-    "ifPresent",
-    "Contact Whatsapp Number is required",
-    (value, context) => {
-      const { parent } = context;
-      if (parent.isContactWhatsapp) {
-        return parent.contactWhatsapp;
-      } else {
-        return true;
-      }
-    }
-  ),
+  // deadline: Yup.string()
+  //   .required("Deadline is required")
+  //   .test("isFuture", "Date Must be of Future", (value, context) => {
+  //     return dayjs(value).isSameOrAfter(dayjs());
+  //   }),
+  // startDate: Yup.string().test(
+  //   "isFuture",
+  //   "Date Must be of Future",
+  //   (value, context) => {
+  //     if (!value) {
+  //       return true;
+  //     }
+  //     return dayjs(value).isSameOrAfter(dayjs());
+  //   }
+  // ),
+  // contactEmail: Yup.string()
+  //   .email()
+  //   .test("ifPresent", "Contact Email is required", (value, context) => {
+  //     const { parent } = context;
+  //     if (parent.isContactEmail) {
+  //       return parent.contactEmail;
+  //     } else {
+  //       return true;
+  //     }
+  //   }),
+  // cc1: Yup.string().email("Invalid Email"),
+  // cc2: Yup.string().email("Invalid Email"),
+  // isContactWhatsapp: Yup.boolean(),
+  // contactWhatsapp: Yup.string().test(
+  //   "ifPresent",
+  //   "Contact Whatsapp Number is required",
+  //   (value, context) => {
+  //     const { parent } = context;
+  //     if (parent.isContactWhatsapp) {
+  //       return parent.contactWhatsapp;
+  //     } else {
+  //       return true;
+  //     }
+  //   }
+  // ),
   highestEducation: Yup.string(),
   languages: Yup.array()
     .of(

@@ -37,8 +37,8 @@ import { ErrorToast, SuccessToast } from "@components/toast";
 // import dayjs from "dayjs";
 import { getJobDetailsByIdAPI } from "@api/job";
 // import { DATABASE_DATE_FORMAT } from "@utils/constants/constants";
-import { useDebounce } from "usehooks-ts";
-import { GetSuggestedAddressAPI } from "@api/user";
+// import { useDebounce } from "usehooks-ts";
+// import { GetSuggestedAddressAPI } from "@api/user";
 import styles from "./postJobs.module.css";
 import { JobFormControl } from "./style";
 import DialogBox from "@components/dialogBox";
@@ -133,7 +133,7 @@ function PostJobsComponent() {
         highest_education: values.highestEducation,
         language: values.languages,
         skill: values.skills,
-        attachments: values.attachments,
+        File: values.attachments,
         attachments_remove: values.attachmentsRemove,
         // duration: values.duration,
         experience: values.experience,
@@ -187,9 +187,9 @@ function PostJobsComponent() {
       }
     },
   });
-  const [suggestedAddress, setSuggestedAddress] = useState([]);
+  // const [suggestedAddress, setSuggestedAddress] = useState([]);
   const [searchValue, setSearchValue] = useState("");
-  const debouncedSearchValue = useDebounce(searchValue, 500);
+  // const debouncedSearchValue = useDebounce(searchValue, 500);
 
   const getJobDetailsById = useCallback(async (jobId) => {
     const response = await getJobDetailsByIdAPI({ jobId });
@@ -248,12 +248,12 @@ function PostJobsComponent() {
     }
   }, []);
 
-  const getSuggestedAddress = async (search) => {
-    const res = await GetSuggestedAddressAPI(search);
-    if (res.remote === "success") {
-      setSuggestedAddress(res.data.predictions);
-    }
-  };
+  // const getSuggestedAddress = async (search) => {
+  //   const res = await GetSuggestedAddressAPI(search);
+  //   if (res.remote === "success") {
+  //     setSuggestedAddress(res.data.predictions);
+  //   }
+  // };
   const handleClose = () => {
     setOpen(false);
     setIsRedirect(true);
@@ -263,14 +263,14 @@ function PostJobsComponent() {
       navigate(`/${USER_ROLES.employer}/manage-jobs`);
     }
   }, [isRedirect]);
-  useEffect(() => {
-    if (
-      debouncedSearchValue &&
-      debouncedSearchValue !== formik.values.address
-    ) {
-      getSuggestedAddress(debouncedSearchValue);
-    }
-  }, [debouncedSearchValue]);
+  // useEffect(() => {
+  //   if (
+  //     debouncedSearchValue &&
+  //     debouncedSearchValue !== formik.values.address
+  //   ) {
+  //     getSuggestedAddress(debouncedSearchValue);
+  //   }
+  // }, [debouncedSearchValue]);
   useEffect(() => {
     const newJobId = searchParams.get("jobId");
     if (newJobId && jobId !== newJobId) setJobId(newJobId);
@@ -456,13 +456,16 @@ function PostJobsComponent() {
                         className="add-form-control"
                         name={formik.getFieldProps("address").name}
                         onBlur={(e) => formik.getFieldProps("address").onBlur}
-                        onChange={(e) => setSearchValue(e.target.value)}
+                        onChange={(e) => {
+                          setSearchValue(e.target.value);
+                          formik.setFieldValue("address", e.target.value);
+                        }}
                         value={searchValue}
                       />
-                      {debouncedSearchValue &&
+                      {/* {debouncedSearchValue &&
                         searchValue !== formik.values.address && (
                           <div className={styles.search_results_box}>
-                            {suggestedAddress.map((address) => {
+                            {suggestedAddress?.map((address) => {
                               return (
                                 <div
                                   key={address.description}
@@ -480,7 +483,7 @@ function PostJobsComponent() {
                               );
                             })}
                           </div>
-                        )}
+                        )} */}
                     </div>
                     {formik.touched.address && formik.errors.address ? (
                       <ErrorMessage>{formik.errors.address}</ErrorMessage>
