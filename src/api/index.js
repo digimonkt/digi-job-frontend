@@ -54,7 +54,7 @@ export const request = async (config) => {
           globalLocalStorage.setAccessToken(error.response.headers["X-Access"]);
         } else {
           if (error.response.status === 403 || error.response.status === 401) {
-            // localStorage.clear();
+            localStorage.clear();
           }
         }
         const axiosError = error;

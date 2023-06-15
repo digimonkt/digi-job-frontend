@@ -19,10 +19,11 @@ function MyJobs() {
     setIsLoading(true);
     const res = await getEmployerJobsAPI({ search });
     if (res.remote === "success") {
+      console.log({ mazid: res });
       setJobs(res.data.results);
       dispatch(setTotalCreatedJobs(res.data.totalCount || res.data.count));
     } else {
-      console.log(res);
+      console.log({ res });
     }
     setIsLoading(false);
   }, [search]);
