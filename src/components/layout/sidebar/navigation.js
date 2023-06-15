@@ -47,13 +47,13 @@ const EmployerNavigationOptions = Object.freeze([
     id: "manageJobs",
     isDisable: false,
   },
-  {
-    to: "/manage-tenders",
-    icon: SVG.TendersIcon,
-    title: "Manage tenders",
-    id: "manageTenders",
-    isDisable: false,
-  },
+  // {
+  //   to: "/manage-tenders",
+  //   icon: SVG.TendersIcon,
+  //   title: "Manage tenders",
+  //   id: "manageTenders",
+  //   isDisable: false,
+  // },
   {
     to: "/calender",
     icon: SVG.CalenderIcon,
