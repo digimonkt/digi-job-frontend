@@ -22,7 +22,7 @@ function MyJobs() {
       setJobs(res.data.results);
       dispatch(setTotalCreatedJobs(res.data.totalCount || res.data.count));
     } else {
-      console.log(res);
+      console.log({ res });
     }
     setIsLoading(false);
   }, [search]);
