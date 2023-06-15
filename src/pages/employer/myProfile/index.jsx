@@ -86,7 +86,7 @@ function MyProfileComponent() {
         address: values.address,
         description: values.description,
         license_id: values.licenseId,
-        license: values.license[0],
+        File: values.license[0],
         mobile_number: mobileNumber,
         country_code: countryCode,
       };
@@ -177,10 +177,10 @@ function MyProfileComponent() {
           ? currentUser.countryCode + currentUser.mobileNumber
           : "";
       formik.setFieldValue("organizationName", currentUser.name);
-      formik.setFieldValue(
-        "organizationType",
-        currentUser.profile.organizationType?.id
-      );
+      // formik.setFieldValue(
+      //   "organizationType",
+      //   currentUser.profile.organizationType?.id
+      // );
       formik.setFieldValue("country", currentUser.profile.country.id || "");
       formik.setFieldValue("city", currentUser.profile.city.id || "");
       formik.setFieldValue("address", currentUser.profile.address);
@@ -254,12 +254,12 @@ function MyProfileComponent() {
                     {...formik.getFieldProps("organizationName")}
                   />
                   {formik.touched.organizationName &&
-                  formik.errors.organizationName ? (
+                    formik.errors.organizationName ? (
                     <ErrorMessage>
                       {formik.errors.organizationName}
                     </ErrorMessage>
                   ) : null}
-                  <HorizontalLabelInput
+                  {/* <HorizontalLabelInput
                     label="Type of the organization"
                     placeholder="Type of the organization"
                     type="select"
@@ -268,7 +268,7 @@ function MyProfileComponent() {
                       label: sector.title,
                     }))}
                     {...formik.getFieldProps("organizationType")}
-                  />
+                  /> */}
 
                   <HorizontalPhoneInput
                     label="Mobile Number (optional)"
@@ -309,7 +309,7 @@ function MyProfileComponent() {
                     options={(cities.data[formik.values.country] || []).map(
                       (country) => ({
                         value: country.id,
-                        label: country.title,
+                        label: country.title || country.city,
                       })
                     )}
                     {...formik.getFieldProps("city")}
