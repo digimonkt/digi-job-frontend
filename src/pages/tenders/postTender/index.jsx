@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
-import CloseIcon from "@mui/icons-material/Close";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+// import CloseIcon from "@mui/icons-material/Close";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useFormik } from "formik";
 import { createTenderAPI, updateTenderAPI } from "@api/employer";
 import dayjs from "dayjs";
@@ -29,7 +29,6 @@ import {
   CardContent,
   Divider,
   Grid,
-  IconButton,
   Stack,
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
@@ -255,7 +254,7 @@ const PostTender = () => {
         >
           <div className="job-content">
             <h2>
-              {tenderId ? "Update tender" : "Post a new tender"}
+              {/* {tenderId ? "Update tender" : "Post a new tender"}
               <span className="right-pull">
                 <IconButton
                   LinkComponent={Link}
@@ -263,7 +262,7 @@ const PostTender = () => {
                 >
                   <CloseIcon />
                 </IconButton>
-              </span>
+              </span> */}
             </h2>
             <div className="form-content">
               <form onSubmit={formik.handleSubmit}>
@@ -418,7 +417,7 @@ const PostTender = () => {
                           onBlur={formik.handleBlur}
                         />
                         {formik.touched.categories &&
-                        formik.errors.categories ? (
+                          formik.errors.categories ? (
                           <ErrorMessage>
                             {formik.errors.categories}
                           </ErrorMessage>
@@ -460,7 +459,7 @@ const PostTender = () => {
                           {...formik.getFieldProps("opportunityType")}
                         />
                         {formik.touched.opportunityType &&
-                        formik.errors.opportunityType ? (
+                          formik.errors.opportunityType ? (
                           <ErrorMessage>
                             {formik.errors.opportunityType}
                           </ErrorMessage>
@@ -506,7 +505,7 @@ const PostTender = () => {
                             onBlur={formik.getFieldProps("startDate").onBlur}
                           />
                           {formik.touched.startDate &&
-                          formik.errors.startDate ? (
+                            formik.errors.startDate ? (
                             <ErrorMessage>
                               {formik.errors.startDate}
                             </ErrorMessage>
@@ -621,8 +620,8 @@ const PostTender = () => {
                             ? "Updating..."
                             : "Posting..."
                           : tenderId
-                          ? "Update the tender"
-                          : "POST THE TENDER"
+                            ? "Update the tender"
+                            : "POST THE TENDER"
                       }
                       type="submit"
                       disabled={formik.isSubmitting}

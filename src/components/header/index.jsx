@@ -165,7 +165,7 @@ function Header() {
 
           <div
             className="ms-auto"
-            // ref={menu}
+          // ref={menu}
           >
             <Stack direction={"row"} alignItems={"center"} spacing={1}>
               <IconButton
@@ -214,9 +214,8 @@ function Header() {
               </IconButton>
             </Stack>
             <ul
-              className={`menu ${ismenu && "menu-selected"} ${
-                role !== USER_ROLES.jobSeeker ? "color-change" : null
-              }`}
+              className={`menu ${ismenu && "menu-selected"} ${role !== USER_ROLES.jobSeeker ? "color-change" : null
+                }`}
             >
               <li>
                 <Link
@@ -245,7 +244,7 @@ function Header() {
               ) : (
                 ""
               )}
-              {isLoggedIn && role === USER_ROLES.employer ? (
+              {/* {isLoggedIn && role === USER_ROLES.employer ? (
                 <li>
                   <Link
                     to="/search/talents"
@@ -292,7 +291,7 @@ function Header() {
                 </li>
               ) : (
                 ""
-              )}
+              )} */}
               {!isLoggedIn && (
                 <li>
                   <Link
