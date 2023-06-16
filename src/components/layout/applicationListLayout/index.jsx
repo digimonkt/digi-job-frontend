@@ -39,9 +39,11 @@ function ApplicationListLayout({
               mx: 2,
             }}
           />
+
           <span
             onClick={() => handleActive()}
             className={`arrowjobs ${isActive ? "active" : ""}`}
+            value="0"
           >
             {<SVG.ArrowUpIcon />}
           </span>
